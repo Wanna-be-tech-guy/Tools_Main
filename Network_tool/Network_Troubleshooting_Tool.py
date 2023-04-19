@@ -38,7 +38,7 @@ clean()
 #############################################################################################################################################################################################################################################################################################################################################################################################
 """Section 2."""
 # Create the main folder and subfolders in a specific directory
-main_folder = "C:/Users/andy1/Networking_Troubleshooting_Tool"
+main_folder = "/home/linux-user/gitmaster/Network_Troubleshooting_Tool"
 os.makedirs(main_folder, exist_ok=True)
 
 ip_list_folder = os.path.join(main_folder, "resources")
