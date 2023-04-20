@@ -73,7 +73,7 @@ while True:
                 user_ip_list = [ip.strip() for ip in user_ip.split(',')]
                 if len(user_ip_list) == 1:
                         ping = subprocess.run(["ping", "-c", "2", user_ip_list[0]], capture_output=True, text=True)
-                        if "Request timeout for icmp_seq 0" or "Request timed out" or "0 received" in ping.stdout:
+                        if "Request timeout for icmp_seq 0" or "Request timed out" or "2 packets transmitted, 0 received, 100% packet loss" in ping.stdout:
                             print(f"{user_ip_list[0]} is down")
                         else:
                            print(f"{user_ip_list[0]} is up")
