@@ -53,7 +53,7 @@ os.makedirs(traceroute_folder, exist_ok=True)
 
 # Welcome message to user(s).
 print("##############################################################################################################################################")
-print("Welcome to the  Network Troubleshooting tool! Good luck, and don't break anything :D (or if you do, fix before anyone notices...\U0001F600")
+print("Welcome to the  Network Troubleshooting tool! Good luck, and don't break anything :D (or if you do, fix before anyone notices...\U0001F600)")
 print("Press shift+F1 to clear screen. Pressing 00 at any menu will exit the program. Pressing 0 at any menu will you return you to the main menu.\n")
 
 #############################################################################################################################################################################################################################################################################################################################################################################################
@@ -75,6 +75,8 @@ while True:
                         ping = subprocess.run(["ping", "-c", "2", user_ip_list[0]], capture_output=True, text=True)
                         if "Request timeout for icmp_seq 0" or "Request timed out" or "2 packets transmitted, 0 received, 100% packet loss" in ping.stdout:
                             print(f"{user_ip_list[0]} is down")
+                        elif "2 packets transmitted, 2 received, 0% packet loss" in ping.stdout:
+                            print(f"{user_ip_list[0]} is up")
                         else:
                            print(f"{user_ip_list[0]} is up")
                 
