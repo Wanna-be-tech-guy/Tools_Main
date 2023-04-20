@@ -3,13 +3,6 @@ import os
 import keyboard
 import nmap
 
-#Second test for vscode git functions
-#Remove once done
-#New line
-#newer  line 
-#test line (again)
-##
-
 #############################################################################################################################################################################################################################################################################################################################################################################################
 # Make sure you have read and understand the Read_Me. All of the aspects of the program have been explained in great detail there.
 # Leave feedback on my GitHub :-)
@@ -79,7 +72,7 @@ while True:
                 user_ip = input("Enter IP(s) to be scanned: ")
                 user_ip_list = [ip.strip() for ip in user_ip.split(',')]
                 if len(user_ip_list) == 1:
-                        ping = subprocess.run(["ping", "-t", "2", user_ip_list[0]], capture_output=True, text=True)
+                        ping = subprocess.run(["ping", "-c", "2", user_ip_list[0]], capture_output=True, text=True)
                         if "Request timeout for icmp_seq 0" or "Request timed out" in ping.stdout:
                             print(f"{user_ip_list[0]} is down")
                         else:
@@ -87,7 +80,7 @@ while True:
                 
                 elif len(user_ip_list) > 1:
                     for ip in user_ip_list:
-                        ping = subprocess.run(["ping", "-t", "2", ip], capture_output=True, text=True)
+                        ping = subprocess.run(["ping", "-c", "2", ip], capture_output=True, text=True)
                         if "Request timeout for icmp_seq 0" or "Request timed out" in ping.stdout:
                             print(f"{ip} is down")
                         else:
