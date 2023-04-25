@@ -151,7 +151,13 @@ while True:
                 nmap_user_ip_list = [ip.strip() for ip in nmap_user_ip.split(',')]
                 if len(nmap_user_ip_list) == 1:
                     nmap = subprocess.run(["nmap", "-sn", nmap_user_ip_list[0]], capture_output=True, text=True)
-                    print(nmap)
+                    if nmap.returncode == 0:
+                        output_lines = nmap.stdout.splitlines()
+                        host_line = output_lines[1]
+                        status_line = output_lines[2]
+                        print("Nmap scan report for", nmap_user_ip_list[0])
+                        print(host_line)
+                        print(status_line)
                 else:
                     print("Still a work in progress!")
 #############################################################################################################################################################################################################################################################################################################################################################################################
