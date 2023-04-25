@@ -149,7 +149,7 @@ while True:
                 print("\n\n*** Seperate IP addresses by commas.***")
                 nmap_user_ip = input("Enter IP range to be scanned: ")
                 nmap_user_ip_list = [ip.strip() for ip in nmap_user_ip.split(',')]
-                if len(nmap_user_ip) == 1:
+                if len(nmap_user_ip_list) == 1:
                     nmap = subprocess.run(["nmap", "-sn", nmap_user_ip_list[0]], capture_output=True, text=True)
                     print(nmap)
                 else:
