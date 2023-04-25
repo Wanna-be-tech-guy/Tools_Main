@@ -145,58 +145,54 @@ while True:
         while True:
             nmap_menu_selction = input("\n\nSelect from the following:\n1.Manually scan IP range\n2.Scan from txt file\n3.Clear\n0.Return to main menu\nEnter Selection:")
 #############################################################################################################################################################################################################################################################################################################################################################################################
-            while True:
-                if nmap_menu_selction.strip() == "1" or nmap_menu_selction.lower() == "manual" or nmap_menu_selction.lower() == "manual scan ip range" or nmap_menu_selction == "scan":
-                    print("\n\n*** Seperate IP addresses by commas.***")
-                    nmap_user_ip = input("Enter IP range to be scanned (press 0 to go back, and 00 to quit): ")
-                    nmap_user_ip_list = [ip.strip() for ip in nmap_user_ip.split(',')]
-                    if len(nmap_user_ip_list) == 1:
-                        nmap = subprocess.run(["nmap", "-sn", nmap_user_ip_list[0]], capture_output=True, text=True)
-                        if nmap.returncode == 0:
-                            output_lines = nmap.stdout.splitlines()
-                            host_line = output_lines[1]
-                            status_line = output_lines[2]
-                            print("Nmap scan report for", nmap_user_ip_list[0])
-                            print(host_line)
-                            print(status_line)
-                        else:
-                            print(nmap)
-                elif nmap_menu_selction == "0":
+            if nmap_menu_selction.strip() == "1" or nmap_menu_selction.lower() == "manual" or nmap_menu_selction.lower() == "manual scan ip range" or nmap_menu_selction == "scan":
+                print("\n\n*** Seperate IP addresses by commas.***")
+                nmap_user_ip = input("Enter IP range to be scanned (press 0 to go back, and 00 to quit): ")
+                nmap_user_ip_list = [ip.strip() for ip in nmap_user_ip.split(',')]
+                if len(nmap_user_ip_list) == 1:
+                    nmap = subprocess.run(["nmap", "-sn", nmap_user_ip_list[0]], capture_output=True, text=True)
+                    if nmap.returncode == 0:
+                        output_lines = nmap.stdout.splitlines()
+                        host_line = output_lines[1]
+                        status_line = output_lines[2]
+                        print("Nmap scan report for", nmap_user_ip_list[0])
+                        print(host_line)
+                        print(status_line)
+                    else:
+                        print(nmap)
+            elif nmap_menu_selction == "0":
+                break
+            elif nmap_menu_selction == "00":
+                print("Quitting program.")
+                quit
+#############################################################################################################################################################################################################################################################################################################################################################################################
+            elif nmap_menu_selction == "2" or nmap_menu_selction == "scan from txt file" or nmap_menu_selction == "scan" or nmap_menu_selction == "txt":
+                os.chdir(nmap_folder) #Makes sure that the following actions are ran against the correct directory
+                directory = "/home/linux-user/gitmaster/Network_Troubleshooting_Tool/NMAP" # Set the directory path to scan for files
+                # Lists the files in the directory that will be imported into the NMAP scan
+                files = os.listdir(directory) 
+                print("\nSelect a file:")
+                for i, file in enumerate(files):
+                    print(f"{i+1}: {file}")
+                # Prompts the user to select a file    
+                selection = input("Enter the number of the file to open, press 0 to go back: ")
+                if selection.strip() == "0": # Takes the user back to the main menu
                     break
-                elif nmap_menu_selction == "00":
-                    print("Quitting program.")
-                    quit
+                # Get the selected file path
+                file_path = os.path.join(directory, files[int(selection)-1])
+                # Open file and read its content
+                with open(file_path, "r") as file:
+                    contents = file.read()
+                    print("hostname | ", contents)
 #############################################################################################################################################################################################################################################################################################################################################################################################
-                elif nmap_menu_selction == "2" or nmap_menu_selction == "scan from txt file" or nmap_menu_selction == "scan" or nmap_menu_selction == "txt":
-                    os.chdir(nmap_folder) #Makes sure that the following actions are ran against the correct directory
-                    directory = "/home/linux-user/gitmaster/Network_Troubleshooting_Tool/NMAP" # Set the directory path to scan for files
-
-                    # Lists the files in the directory that will be imported into the NMAP scan
-                    files = os.listdir(directory) 
-                    print("\nSelect a file:")
-                    for i, file in enumerate(files):
-                        print(f"{i+1}: {file}")
-
-                    # Prompts the user to select a file    
-                    selection = input("Enter the number of the file to open, press 0 to go back: ")
-                    if selection.strip() == "0": # Takes the user back to the main menu
-                        break
-                    # Get the selected file path
-                    file_path = os.path.join(directory, files[int(selection)-1])
-
-                    # Open file and read its content
-                    with open(file_path, "r") as file:
-                        contents = file.read()
-                        print("hostname | ", contents)
+            elif nmap_menu_selction == "3" or nmap_menu_selction == "clear":
+                clean()
 #############################################################################################################################################################################################################################################################################################################################################################################################
-                elif nmap_menu_selction == "3" or nmap_menu_selction == "clear":
-                    clean()
+            elif nmap_menu_selction == "0" or nmap_menu_selction == "back":
+                break
 #############################################################################################################################################################################################################################################################################################################################################################################################
-                elif nmap_menu_selction == "0" or nmap_menu_selction == "back":
-                    break
-#############################################################################################################################################################################################################################################################################################################################################################################################
-                elif nmap_menu_selction == "00":
-                    quit()
+            elif nmap_menu_selction == "00":
+                quit()
 #############################################################################################################################################################################################################################################################################################################################################################################################
             else:
                 print("Not a valid option. Please another selction.")
