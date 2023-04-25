@@ -123,10 +123,10 @@ while True:
                             break
                         else:
                             for ip in contents:
-                                ping = subprocess.run(["ping", "-n", "2", ip], capture_output=True, text=True)
-                                if "Request timeout for icmp_seq 0" or "Request timed out" in ping.stdout:
+                                ping = subprocess.run(["ping", "-c", "2", ip], capture_output=True, text=True)
+                                if "Request timeout for icmp_seq 0" in ping.stdout or "100% packet loss" in ping.stdout:
                                     print(f"{ip} is down")
-                                elif "Sent = 2"in ping.stdout:
+                                elif "2 packets transmitted, 2 received, 0% packet loss"in ping.stdout:
                                    print(f"{ip} is up")
 #############################################################################################################################################################################################################################################################################################################################################################################################
             elif ping_menu_selection.strip() == "3" or ping_menu_selection.lower() == "clear":
