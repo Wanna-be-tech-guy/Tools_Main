@@ -146,22 +146,26 @@ while True:
             nmap_menu_selction = input("\n\nSelect from the following:\n1.Manually scan IP range\n2.Scan from txt file\n3.Clear\n0.Return to main menu\nEnter Selection:")
 #############################################################################################################################################################################################################################################################################################################################################################################################
             if nmap_menu_selction.strip() == "1" or nmap_menu_selction.lower() == "manual" or nmap_menu_selction.lower() == "manual scan ip range" or nmap_menu_selction == "scan":
-                print("\n\n*** Seperate IP addresses by commas.***")
-                nmap_user_ip = input("Enter IP range to be scanned: ")
-                nmap_user_ip_list = [ip.strip() for ip in nmap_user_ip.split(',')]
-                if len(nmap_user_ip_list) == 1:
-                    nmap = subprocess.run(["nmap", "-sn", nmap_user_ip_list[0]], capture_output=True, text=True)
-                    if nmap.returncode == 0:
-                        output_lines = nmap.stdout.splitlines()
-                        host_line = output_lines[1]
-                        status_line = output_lines[2]
-                        print("Nmap scan report for", nmap_user_ip_list[0])
-                        print(host_line)
-                        print(status_line)
-                    else:
-                        print(nmap)
-                else:
-                    print("Still a work in progress!")
+                while True:
+                    print("\n\n*** Seperate IP addresses by commas.***")
+                    nmap_user_ip = input("Enter IP range to be scanned (press 0 to go back, and 00 to quit): ")
+                    nmap_user_ip_list = [ip.strip() for ip in nmap_user_ip.split(',')]
+                    if len(nmap_user_ip_list) == 1:
+                        nmap = subprocess.run(["nmap", "-sn", nmap_user_ip_list[0]], capture_output=True, text=True)
+                        if nmap.returncode == 0:
+                            output_lines = nmap.stdout.splitlines()
+                            host_line = output_lines[1]
+                            status_line = output_lines[2]
+                            print("Nmap scan report for", nmap_user_ip_list[0])
+                            print(host_line)
+                            print(status_line)
+                        else:
+                            print(nmap)
+                    elif input == "0":
+                        break
+                    elif input == "00":
+                        print("Quitting the program")
+                        quit
 #############################################################################################################################################################################################################################################################################################################################################################################################
             elif nmap_menu_selction == "2" or nmap_menu_selction == "scan from txt file" or nmap_menu_selction == "scan" or nmap_menu_selction == "txt":
                 os.chdir(nmap_folder) #Makes sure that the following actions are ran against the correct directory
