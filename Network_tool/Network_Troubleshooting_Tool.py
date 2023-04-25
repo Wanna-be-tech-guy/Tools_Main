@@ -54,7 +54,7 @@ os.makedirs(traceroute_folder, exist_ok=True)
 # Welcome message to user(s).
 print("##############################################################################################################################################")
 print("Welcome to the  Network Troubleshooting tool! Good luck, and don't break anything :D (or if you do, fix before anyone notices...\U0001F600)")
-print("Press shift+F1 to clear screen. Pressing 00 at any menu will exit the program. Pressing 0 at any menu will you return you to the main menu.\n")
+print("Pressing 0 at any menu will return you to the last menu. Pressing 00 at any menu will you quit the program.\n")
 
 #############################################################################################################################################################################################################################################################################################################################################################################################
 """Section 3."""
