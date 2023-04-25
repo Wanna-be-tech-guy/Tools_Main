@@ -160,11 +160,11 @@ while True:
                         print(status_line)
                     else:
                         print(nmap)
-            elif nmap_menu_selction == "0":
+            elif nmap_menu_selction.strip() == "0":
                 break
-            elif nmap_menu_selction == "00":
+            elif nmap_menu_selction.strip() == "00":
                 print("Quitting program.")
-                quit
+                quit()
 #############################################################################################################################################################################################################################################################################################################################################################################################
             elif nmap_menu_selction == "2" or nmap_menu_selction == "scan from txt file" or nmap_menu_selction == "scan" or nmap_menu_selction == "txt":
                 os.chdir(nmap_folder) #Makes sure that the following actions are ran against the correct directory
