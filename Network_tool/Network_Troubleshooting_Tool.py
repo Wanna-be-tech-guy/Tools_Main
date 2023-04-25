@@ -150,7 +150,7 @@ while True:
 #############################################################################################################################################################################################################################################################################################################################################################################################
             elif nmap_menu_selction == "2" or nmap_menu_selction == "scan from txt file" or nmap_menu_selction == "scan" or nmap_menu_selction == "txt":
                 os.chdir(nmap_folder) #Makes sure that the following actions are ran against the correct directory
-                directory = r"C:\Users\andy1\Networking_Troubleshooting_Tool\NMAP" # Set the directory path to scan for files
+                directory = "/home/linux-user/gitmaster/Network_Troubleshooting_Tool/NMAP" # Set the directory path to scan for files
 
                 # Lists the files in the directory that will be imported into the NMAP scan
                 files = os.listdir(directory) 
@@ -192,7 +192,7 @@ while True:
 #############################################################################################################################################################################################################################################################################################################################################################################################
             elif traceroute_menu_selection.strip() == "2" or traceroute_menu_selection.lower() == "select" or traceroute_menu_selection.lower() == "txt" or traceroute_menu_selection.lower() == "select from txt file":
                 os.chdir(traceroute_folder) #Makes sure that the following actions are ran against the correct directory
-                directory = r"C:\Users\andy1\Networking_Troubleshooting_Tool\Traceroute" # Set the directory path to scan for files
+                directory = "/home/linux-user/gitmaster/Network_Troubleshooting_Tool/Traceroute" # Set the directory path to scan for files
 
                 # Lists the files in the directory that will be imported into the NMAP scan
                 files = os.listdir(directory) 
