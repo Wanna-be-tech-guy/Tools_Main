@@ -200,7 +200,7 @@ while True:
                         break
                     else:
                         for ip in contents:
-                            nmap_user_ip = input("Enter IP range to be scanned (press 0 to go back, and 00 to quit): ")
+                            #nmap_user_ip = input("Enter IP range to be scanned (press 0 to go back, and 00 to quit): ")
                             nmap_user_ip_list = [ip.strip() for ip in nmap_user_ip.split(',')]
                             if len(nmap_user_ip_list) > 0:
                                 nmap_ip_range = "-".join(nmap_user_ip_list)
