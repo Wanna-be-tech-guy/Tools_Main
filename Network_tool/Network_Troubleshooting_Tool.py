@@ -120,7 +120,7 @@ while True:
                     with open(file_path, "r") as file:
                         contents = [line.strip() for line in file]
                         if contents == " ":
-                            print("File is enmpty, please select a new file")
+                            print("File is enmpty, please select a valid file")
                             break
                         else:
                             for ip in contents:
@@ -158,6 +158,7 @@ while True:
                         print("Nmap scan report for", nmap_user_ip_list[0])
                         print(host_line)
                         print(status_line)
+#############################################################################################################################################################################################################################################################################################################################################################################################                        
                 elif len(nmap_user_ip_list) > 1:
                     for ip in nmap_user_ip_list:
                         nmap = subprocess.run(["nmap", "-sn", ip], capture_output=True, text=True)
@@ -168,8 +169,10 @@ while True:
                             print("Nmap scan for", ip)
                             print(host_line)
                             print(status_line)
+#############################################################################################################################################################################################################################################################################################################################################################################################                        
             elif nmap_menu_selction.strip() == "0":
                 break
+#############################################################################################################################################################################################################################################################################################################################################################################################                        
             elif nmap_menu_selction.strip() == "00":
                 print("Quitting program.")
                 quit()
@@ -190,8 +193,25 @@ while True:
                 file_path = os.path.join(directory, files[int(selection)-1])
                 # Open file and read its content
                 with open(file_path, "r") as file:
-                    contents = file.read()
-                    print("hostname | ", contents)
+                    #contents = file.read()
+                    contents = [line.strip() for line in file]
+                    if contents == " ":
+                        print("FIle is empty, please select a valid file")
+                        break
+                    else:
+                        for ip in contents:
+                            nmap_user_ip = input("Enter IP range to be scanned (press 0 to go back, and 00 to quit): ")
+                            nmap_user_ip_list = [ip.strip() for ip in nmap_user_ip.split(',')]
+                            if len(nmap_user_ip_list) > 0:
+                                nmap_ip_range = "-".join(nmap_user_ip_list)
+                                nmap = subprocess.run(["nmap", "-sn", nmap_ip_range], capture_output=True, text=True)
+                                if nmap.returncode == 0:
+                                    output_lines = nmap.stdout.splitlines()
+                                    host_line = output_lines[1]
+                                    status_line = output_lines[2]
+                                    print("Nmap scan report for", nmap_ip_range)
+                                    print(host_line)
+                                    print(status_line)
 #############################################################################################################################################################################################################################################################################################################################################################################################
             elif nmap_menu_selction == "3" or nmap_menu_selction == "clear":
                 clean()
