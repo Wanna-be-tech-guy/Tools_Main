@@ -160,12 +160,12 @@ while True:
                         print(status_line)
                 elif len(nmap_user_ip_list) > 2:
                     for ip in nmap_user_ip_list:
-                        nmap = subprocess.run(["nmap", "-sn", nmap_user_ip_list], capture_output=True, text=True)
+                        nmap = subprocess.run(["nmap", "-sn", ip], capture_output=True, text=True)
                         if nmap.returncode == 0:
                             output_lines = nmap.stdout.splitlines()
                             host_line = output_lines[1]
                             status_line = output_lines[2]
-                            print("Nmap scan for", nmap_user_ip_list)
+                            print("Nmap scan for", ip)
                             print(host_line)
                             print(status_line)
             elif nmap_menu_selction.strip() == "0":
