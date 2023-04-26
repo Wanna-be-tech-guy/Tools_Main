@@ -165,7 +165,7 @@ while True:
                                 output_lines = nmap.stdout.splitlines()
                                 host_line = output_lines[1]
                                 status_line = output_lines[2]
-                                print("Nmap scan for", ip)
+                                print("Nmap scan for", nmap_user_ip_list)
                                 print(host_line)
                                 print(status_line)
             elif nmap_menu_selction.strip() == "0":
