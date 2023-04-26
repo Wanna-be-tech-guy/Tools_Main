@@ -194,12 +194,12 @@ while True:
                 # Open file and read its content
                 with open(file_path, "r") as file:
                     #contents = file.read()
-                    contents = [line.strip() for line in file]
-                    if contents == " ":
+                    nmap_user_ip = [line.strip() for line in file]
+                    if nmap_user_ip == " ":
                         print("FIle is empty, please select a valid file")
                         break
                     else:
-                        for ip in contents:
+                        for ip in nmap_user_ip:
                             #nmap_user_ip = input("Enter IP range to be scanned (press 0 to go back, and 00 to quit): ")
                             nmap_user_ip_list = [ip.strip() for ip in nmap_user_ip.split(',')]
                             if len(nmap_user_ip_list) > 0:
