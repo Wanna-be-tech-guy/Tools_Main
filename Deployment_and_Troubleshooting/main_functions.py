@@ -147,7 +147,7 @@ def ping_menu_from_txt():
         file_path = os.path.join(directory, files[int(selection)-1])
         # Opens the file and reads the contents
         with open(file_path, "r") as file:
-            contents = [line.strip() for line in file]
+            contents = [line.strip() for line in file.readlines()]
             if contents == " ":
                 print("File is empty, please select a valid file")
                 break
