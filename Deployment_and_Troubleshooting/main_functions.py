@@ -13,6 +13,11 @@ directory, there is a copy there."""
 def clean():
     os.system('cls' if os.name=='nt' else 'clear')
 
+def did_a_thing():
+    print("Tots did the stuff and things...\U0001F600\U0001F600")
+    time_for_a_break()
+    clean()
+
 #def user_ping(ping):  #Testing if I need this function on the script. Will remove in later version if it is not used.
 #    command = subprocess.run(["ping", "-n", "2", ip] if os.name=='nt' else ["ping", "-t", "2", ip])
 
@@ -40,6 +45,8 @@ def file_directory():
 
     traceroute_folder = os.path.join(main_folder, "traceroute")
     os.makedirs(traceroute_folder, exist_ok=True)
+
+    did_a_thing()
 
 def exit_program():
     print("Quitting the program!")
