@@ -1,5 +1,7 @@
 from main_functions import *
 
+update_script()
+time.sleep(2)
 clean()
 
 welcome_message()
