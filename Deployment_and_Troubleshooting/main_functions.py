@@ -70,8 +70,8 @@ def ping_menu():
 
 def ping_menu_manual():
     while True:
-        print("*****\nSeperate IP(s) addresses by commas.*****")
-        user_ip = input("enter IP(s) to be scanned: ")
+        print("\n*****Seperate IP(s) addresses by commas.*****")
+        user_ip = input("Enter IP(s) to be scanned: ")
         user_ip_list = [ip.strip() for ip in user_ip.split(',')]
         if user_ip.strip() == "0":
             break
