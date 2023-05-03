@@ -23,6 +23,12 @@ def did_a_thing():
 
 #def user_ping(ping):  #Testing if I need this function on the script. Will remove in later version if it is not used.
 #    command = subprocess.run(["ping", "-n", "2", ip] if os.name=='nt' else ["ping", "-t", "2", ip])
+def main_menu_options():
+    main_menu_options = [
+        "1."
+        "2."
+        "3."
+    ]
 
 def time_for_a_break():
     time.sleep(5)
@@ -66,7 +72,7 @@ def update_script():
     time.sleep(2)
     clean()
 #############################################################################################################################################################################################################################################################################################################################################################################################
-"""Start of the menu functions"""
+"""Start of the (main and sub) menu functions"""
 
 # deployment_and_troubleshooting_tool set-up menu function (option 1 from main menu in DATT).
 def set_up_menu():
