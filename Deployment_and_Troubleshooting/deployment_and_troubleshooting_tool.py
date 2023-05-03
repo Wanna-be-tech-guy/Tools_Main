@@ -3,8 +3,6 @@ from main_functions import *
 clean()
 welcome_message()
 
-print("doing ittttttt!")
-
 while True:
     menu_selction = input("Menu Options:\n1.Set-up (Should only need ran once, or on a new instance)\n2.Ping\n3.NMAP scan(s)\n4.TraceRoute\n5.Manage Resources\n6.Clear screen\n00.Exit\nEnter selection: ")
     if menu_selction.strip() == "1" or menu_selction.lower() == "set-up" or menu_selction.lower() == "set up":
