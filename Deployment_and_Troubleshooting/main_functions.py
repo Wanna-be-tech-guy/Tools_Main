@@ -156,6 +156,6 @@ def ping_menu_from_txt():
                     ping = subprocess.run(["ping", "-c", "2", ip], capture_output=True, text=True)
                     if "100% packet loss" in ping.stdout:
                         print(f"{ip} is down")
-                    elif "2 packets transmitted, 2 receieved, 0% packet loss" in ping.stdout:
+                    elif "2 receieved" in ping.stdout:
                         print(f"{ip} is up")
 
