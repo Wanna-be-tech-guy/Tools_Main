@@ -64,7 +64,7 @@ def feature_not_added():
 
 def usable_ping_folder(): #Not needed any longer, now that start_DAT_tool.py has been created, tested and pushed out to the deployment_and_troubleshooting_tool.py Git repo.
     global ping_folder
-    
+
     main_folder = "/home/linux-user/gitmaster/DAT_Tool/Resources"
     os.makedirs(main_folder, exist_ok=True)
 
@@ -135,7 +135,7 @@ def ping_menu_from_txt():
         # Lists the files in the directory that will import for the ping test
         files = os.listdir(directory)
         print("\nSelect a file:") #May not be needed, seems to be a duplicate of the next print statement. Needs testing.
-        for i, file in enumerate(directory):
+        for i, file in enumerate(files):
             print(f"{i+1}: {file}")
         # Prompts the user to select a file
         selection = input("Select a file to open (press 0 to go back)\nSelection:")
