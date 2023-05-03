@@ -9,6 +9,9 @@ import sys
 Be sure and read the ream_me for this tool, as all the features and syntax for using each are explained in great detail. It can be found on GitHub, or if you naviate to the resources
 directory, there is a copy there."""
 
+#############################################################################################################################################################################################################################################################################################################################################################################################
+"""Functions that will used through out the program, but are not part of the menu options. These are hidden to the end user."""
+
 # Main functions used in DATT.
 def clean():
     os.system('cls' if os.name=='nt' else 'clear')
@@ -58,6 +61,14 @@ def feature_not_added():
     time_for_a_break()
     clean()
 
+#############################################################################################################################################################################################################################################################################################################################################################################################
+"""Start of the menu functions"""
+
+# deployment_and_troubleshooting_tool set-up menu function (option 1 from main menu in DATT).
+def set_up_menu():
+    file_directory()
+
+# deployment_and_troubleshooting_tool.py ping menu function (option 2 from main menu in DATT).
 def ping_menu():
     clean()
     while True:
@@ -75,9 +86,7 @@ def ping_menu():
         else:
             print("Not a valid selction, plesae try again!")
 
-def set_up_menu():
-    file_directory()
-
+# Sub-menu of ping_menu in deployment_and_troubleshooting_tool.py
 def ping_menu_manual():
     while True:
         print("\n*****Seperate IP(s) addresses by commas.*****")
@@ -103,5 +112,6 @@ def ping_menu_manual():
                         else:
                             print(f"{ip} is up")
 
+# Sub-menu of ping_menu in deployment_and_troubleshooting_tool.py
 def ping_menu_from_txt():
     feature_not_added()
