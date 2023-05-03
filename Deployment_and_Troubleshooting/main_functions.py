@@ -77,7 +77,7 @@ def set_up_menu():
 def ping_menu():
     clean()
     while True:
-        ping_menu_selection = input("Do yyou wish to enter IP(s):\n1.Manually\n2.Select from txt file\n3.Clear screen\n4.Back to main menu\n5.Exit\nEnterSelection:")
+        ping_menu_selection = input("Do you wish to enter IP(s):\n1.Manually\n2.Select from txt file\n3.Clear screen\n4.Back to main menu\n5.Exit\nEnter Selection:")
         if ping_menu_selection.strip() == "1" or ping_menu_selection.lower() == "manually":
             ping_menu_manual()
         elif ping_menu_selection.strip() == "2" or ping_menu_selection.lower() == "select from txt file":
