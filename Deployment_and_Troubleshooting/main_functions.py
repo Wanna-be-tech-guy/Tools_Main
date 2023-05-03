@@ -124,7 +124,7 @@ def ping_menu_from_txt():
         # Makes sure the actions in the list section are ran against the right directory
         os.chdir(ping_folder)
         # Set the directory path to scan for files
-        directory = "/home/linux-user/gitmaster/DAT_Tool/Resources/Ping"
+        directory = "/home/linux-user/gitmaster/DAT_Tool/Resources/ping"
         # Lists the files in the directory that will import for the ping test
         files = os.listdir(directory)
         print("\nSelect a file:") #May not be needed, seems to be a duplicate of the next print statement. Needs testing.
