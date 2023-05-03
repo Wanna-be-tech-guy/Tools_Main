@@ -62,10 +62,10 @@ def feature_not_added():
     time_for_a_break()
     clean()
 
-def update_script(): #Not needed any longer, now that start_DAT_tool.py has been created, tested and pushed out to the deployment_and_troubleshooting_tool.py Git repo.
-    subprocess.run(["git", "pull"])
-    time.sleep(2)
-    clean()
+def usable_ping_folder(): #Not needed any longer, now that start_DAT_tool.py has been created, tested and pushed out to the deployment_and_troubleshooting_tool.py Git repo.
+    global ping_folder
+
+
 #############################################################################################################################################################################################################################################################################################################################################################################################
 """Start of the (main and sub) menu functions"""
 
@@ -77,7 +77,7 @@ def set_up_menu():
 def ping_menu():
     clean()
     while True:
-        ping_menu_selection = input("Do you wish to enter IP(s):\n1.Manually\n2.Select from txt file\n3.Clear screen\n4.Back to main menu\n5.Exit\nEnter Selection:")
+        ping_menu_selection = input("Do you wish to enter IP(s):\n1.Manually\n2.Select from txt file\n3.Clear screen\n4.Back to main menu\n0.Exit\nEnter Selection:")
         if ping_menu_selection.strip() == "1" or ping_menu_selection.lower() == "manually":
             ping_menu_manual()
         elif ping_menu_selection.strip() == "2" or ping_menu_selection.lower() == "select from txt file":
@@ -86,7 +86,7 @@ def ping_menu():
             clean()
         elif ping_menu_selection.strip() == "4" or ping_menu_selection.lower() == "back to main menu" or ping_menu_selection == "back":
             break
-        elif ping_menu_selection.strip() == "5" or ping_menu_selection.lower() == "quit":
+        elif ping_menu_selection.strip() == "0" or ping_menu_selection.lower() == "quit":
             exit_program()
         else:
             print("Not a valid selction, plesae try again!")
@@ -119,7 +119,7 @@ def ping_menu_manual():
 
 # Sub-menu of ping_menu in deployment_and_troubleshooting_tool.py
 def ping_menu_from_txt():
-    file_directory()
+    #file_directory()
     while True:
         # Makes sure the actions in the list section are ran against the right directory
         os.chdir(ping_folder)
