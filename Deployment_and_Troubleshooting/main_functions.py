@@ -34,6 +34,7 @@ def welcome_message():
     print("##############################################################################################################################################")
 
 def file_directory():
+    global ping_folder
     main_folder = "/home/linux-user/gitmaster/DAT_Tool/Resources"
     os.makedirs(main_folder, exist_ok=True)
 
@@ -118,6 +119,7 @@ def ping_menu_manual():
 
 # Sub-menu of ping_menu in deployment_and_troubleshooting_tool.py
 def ping_menu_from_txt():
+    file_directory()
     while True:
         # Makes sure the actions in the list section are ran against the right directory
         os.chdir(ping_folder)
