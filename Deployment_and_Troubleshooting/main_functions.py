@@ -61,7 +61,7 @@ def feature_not_added():
     time_for_a_break()
     clean()
 
-def update_script():
+def update_script(): #Not needed any longer, now that start_DAT_tool.py has been created, tested and pushed out to the deployment_and_troubleshooting_tool.py Git repo.
     subprocess.run(["git", "pull"])
     time.sleep(2)
     clean()
@@ -118,4 +118,35 @@ def ping_menu_manual():
 
 # Sub-menu of ping_menu in deployment_and_troubleshooting_tool.py
 def ping_menu_from_txt():
-    feature_not_added()
+    while True:
+        # Makes sure the actions in the list section are ran against the right directory
+        os.chdir(ping_folder)
+        # Set the directory path to scan for files
+        directory = "/home/linux-user/gitmaster/DAT_Tool/Resources/Ping"
+        # Lists the files in the directory that will import for the ping test
+        files = os.listdir(directory)
+        print("\nSelect a file:") #May not be needed, seems to be a duplicate of the next print statement. Needs testing.
+        for i, file in enumerate(directory):
+            print(f"{i+1}: {file}")
+        # Prompts the user to select a file
+        selection = input("Select a file to open (press 0 to go back)\nSelection:")
+        if selection.strip() == "0":
+            break
+        elif selection.strip() == "00":
+            exit_program()
+        # Gets the selected file path
+        file_path = os.path.join(directory, files[int(selection)-1])
+        # Opens the file and reads the contents
+        with open(file_path, "r") as file:
+            contents = [line.strip() for line in file]
+            if contents == " ":
+                print("File is empty, please select a valid file")
+                break
+            else:
+                for ip in contents:
+                    ping = subprocess.run(["ping", "-c", "2", ip], capture_output=True, text=True)
+                    if "100% packet loss" in ping.stdout:
+                        print(f"{ip} is down")
+                    elif "2 packets transmitted, 2 receieved, 0% packet loss" in ping.stdout:
+                        print(f"{ip} is up")
+
