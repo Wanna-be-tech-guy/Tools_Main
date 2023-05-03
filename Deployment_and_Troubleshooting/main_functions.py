@@ -34,7 +34,7 @@ def welcome_message():
     print("##############################################################################################################################################")
 
 def file_directory():
-    global ping_folder
+    #global ping_folder
     main_folder = "/home/linux-user/gitmaster/DAT_Tool/Resources"
     os.makedirs(main_folder, exist_ok=True)
 
@@ -64,6 +64,12 @@ def feature_not_added():
 
 def usable_ping_folder(): #Not needed any longer, now that start_DAT_tool.py has been created, tested and pushed out to the deployment_and_troubleshooting_tool.py Git repo.
     global ping_folder
+    
+    main_folder = "/home/linux-user/gitmaster/DAT_Tool/Resources"
+    os.makedirs(main_folder, exist_ok=True)
+
+    ping_folder = os.path.join(main_folder, "ping")
+    os.makedirs(ping_folder, exist_ok=True) 
 
 
 #############################################################################################################################################################################################################################################################################################################################################################################################
