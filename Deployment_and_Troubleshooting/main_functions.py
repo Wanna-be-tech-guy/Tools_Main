@@ -23,20 +23,14 @@ def did_a_thing():
 
 #def user_ping(ping):  #Testing if I need this function on the script. Will remove in later version if it is not used.
 #    command = subprocess.run(["ping", "-n", "2", ip] if os.name=='nt' else ["ping", "-t", "2", ip])
-def main_menu_options():
-    main_menu_options = [
-        "1."
-        "2."
-        "3."
-    ]
 
 def time_for_a_break():
     time.sleep(5)
 
 def welcome_message():
     print("##############################################################################################################################################")
-    print("Welcome to the  Network Troubleshooting tool! Good luck, and don't break anything :D (or if you do, fix before anyone notices...\U0001F600)")
-    print("Pressing 0 at any menu will return you to the last menu. Pressing 00 at any menu will you quit the program.\n")
+    print("Welcome to DAT_Tool! Good luck, and don't break anything :D (or if you do, fix before anyone notices...\U0001F600)")
+    print("Pressing 0 at any menu will return you to the last menu. Pressing 00 at any menu will you quit the program.")
     print("##############################################################################################################################################")
 
 def file_directory():
