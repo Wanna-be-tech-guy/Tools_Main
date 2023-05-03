@@ -22,3 +22,5 @@ while True:
         exit_program()
     else:
         print("Not a valid selection, please try again.")
+        time.sleep(2)
+        clean()
