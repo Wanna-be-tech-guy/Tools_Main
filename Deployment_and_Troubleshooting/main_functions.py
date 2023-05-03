@@ -68,6 +68,9 @@ def ping_menu():
         else:
             print("Not a valid selction, plesae try again!")
 
+def set_up_menu():
+    file_directory()
+
 def ping_menu_manual():
     while True:
         print("\n*****Seperate IP(s) addresses by commas.*****")
