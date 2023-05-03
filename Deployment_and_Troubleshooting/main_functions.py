@@ -119,6 +119,7 @@ def ping_menu_manual():
 
 # Sub-menu of ping_menu in deployment_and_troubleshooting_tool.py
 def ping_menu_from_txt():
+    usable_ping_folder()
     #file_directory()
     while True:
         # Makes sure the actions in the list section are ran against the right directory
