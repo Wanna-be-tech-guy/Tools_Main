@@ -1,8 +1,7 @@
 from main_functions import *
 
+# imported from main_functions. This makes sure that the program is running the lastest version of code from the Git repo.
 update_script()
-time.sleep(2)
-clean()
 
 welcome_message()
 
