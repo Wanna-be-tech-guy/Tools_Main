@@ -1,9 +1,11 @@
 from main_functions import *
 
 # imported from main_functions. This makes sure that the program is running the lastest version of code from the Git repo.
-update_script()
+#update_script()
 
 welcome_message()
+
+print("doing ittttttt!")
 
 while True:
     menu_selction = input("Menu Options:\n1.Set-up (Should only need ran once, or on a new instance)\n2.Ping\n3.NMAP scan(s)\n4.TraceRoute\n5.Manage Resources\n6.Clear screen\n00.Exit\nEnter selection: ")
