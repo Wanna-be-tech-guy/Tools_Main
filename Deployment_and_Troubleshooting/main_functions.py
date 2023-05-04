@@ -17,7 +17,7 @@ def clean():
     os.system('cls' if os.name=='nt' else 'clear')
 
 def did_a_thing():
-    print("Tots did the stuff and things...\U0001F600\U0001F600")
+    print("Tots did the stuff and things....\U0001F600\U0001F600")
     time_for_a_break()
     clean()
 
